@@ -1,0 +1,29 @@
+# Candidate for this RTX 5070 Ti Laptop GPU.
+# Batch 3 passed 8 real training batches (~8.93 GiB peak reserved); batch 4 ran out of memory.
+# Run one complete epoch, including validation, before launching the full experiment.
+model: /workspace/weights/yolo26l.pt
+data: /workspace/configs/volleyball_compatible.yaml
+
+epochs: 300
+patience: 50
+imgsz: 1280
+batch: 3
+amp: true
+device: 0
+workers: 8
+seed: 42
+deterministic: true
+
+# Fix the optimizer for comparable short and full runs (auto can switch algorithms).
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+cos_lr: true
+warmup_epochs: 3
+close_mosaic: 20
+cache: false
+resume: false
+
+project: /workspace/runs
+name: yolo26l_1280_b3_quality_v1
+exist_ok: false

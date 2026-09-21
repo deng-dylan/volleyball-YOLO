@@ -1,0 +1,15 @@
+# 与 compose.yaml 一起使用；只在摄像头推理时加载。
+services:
+  trainer:
+    devices:
+      - "${CAMERA_DEVICE:-/dev/video0}:/dev/video0"
+    group_add:
+      - "${CAMERA_GID:?请先将 CAMERA_GID 设置为摄像头设备的组 ID}"
+    environment:
+      DISPLAY: "${DISPLAY:?请在桌面终端运行}"
+      XAUTHORITY: /tmp/camera.xauth
+      QT_QPA_FONTDIR: /usr/share/fonts/truetype/dejavu
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - /usr/share/fonts/truetype/dejavu:/usr/share/fonts/truetype/dejavu:ro
+      - ${XAUTHORITY:?请设置桌面会话的 XAUTHORITY 路径}:/tmp/camera.xauth:ro

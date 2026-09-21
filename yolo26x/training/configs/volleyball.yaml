@@ -1,0 +1,7 @@
+# Paths as seen inside the training container.
+path: /datasets/volleyball
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: volleyball

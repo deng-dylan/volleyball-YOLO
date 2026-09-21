@@ -1,0 +1,20 @@
+model: yolov8n.pt
+data: /workspace/configs/volleyball.yaml
+
+epochs: 150
+patience: 30
+
+imgsz: 960
+batch: 12
+workers: 8
+device: 0
+
+optimizer: "AdamW"
+lr0: 0.001
+seed: 0
+close_mosaic: 10
+cache: false
+
+project: /workspace/runs
+name: volleyball_v8n_baseline_v1
+exist_ok: false

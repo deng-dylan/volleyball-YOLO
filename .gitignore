@@ -1,0 +1,47 @@
+# 正式 YOLOv8 训练结果保留，其他测试运行忽略
+runs/*
+!runs/volleyball_v8n_baseline_v1/
+
+# 素材、备份和本机配置
+backups/
+datasets/
+.config/
+
+# Python 缓存和虚拟环境
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器、系统和临时备份文件
+.vscode/
+.DS_Store
+*~
+*.bak.*
+
+# 解包后的模型内部文件；.pt 权重仍然保留
+weights/*/
+
+# 根目录下可能出现的素材目录
+/data/
+/images/
+/videos/
+
+# YOLO26x 数据素材、导入包和本机缓存
+yolo26x/volleyball_yolo_v1_20260917/
+yolo26x/training/data/
+yolo26x/training/imports/
+yolo26x/training/.cache/
+yolo26x/training/.config/
+
+# 只保留正式 YOLO26x quality_v2 训练结果
+yolo26x/training/runs/*
+!yolo26x/training/runs/yolo26x_1280_b2_quality_v2/
+
+# 测试和诊断输出
+yolo26x/training/diagnostics/
+
+# 一次性测试、检查和性能分析脚本
+src/check_dataset.py
+yolo26x/training/src/compare_l_x_latency.py
+yolo26x/training/src/profile_training_memory.py

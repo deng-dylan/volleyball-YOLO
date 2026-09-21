@@ -1,0 +1,27 @@
+# Dataset v2: adds 234 reviewed teammate training images; val/test are unchanged.
+# Same model/hyperparameters as v1; starts a new run from official pretrained weights.
+model: /workspace/weights/yolo26x.pt
+data: /workspace/configs/volleyball_v2.yaml
+
+epochs: 300
+patience: 50
+imgsz: 1280
+batch: 2
+amp: true
+device: 0
+workers: 8
+seed: 42
+deterministic: true
+
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+cos_lr: true
+warmup_epochs: 3
+close_mosaic: 20
+cache: false
+resume: false
+
+project: /workspace/runs
+name: yolo26x_1280_b2_quality_v2
+exist_ok: false

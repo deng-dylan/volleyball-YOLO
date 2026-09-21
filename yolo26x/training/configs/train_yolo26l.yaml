@@ -1,0 +1,19 @@
+# Candidate settings; verify memory use in a short run before full training.
+model: /workspace/weights/yolo26l.pt
+data: /workspace/configs/volleyball.yaml
+
+epochs: 200
+patience: 40
+imgsz: 1280
+batch: 1
+amp: true
+device: 0
+workers: 4
+seed: 42
+close_mosaic: 10
+cache: false
+resume: false
+
+project: /workspace/runs
+name: yolo26l_1280_v1
+exist_ok: false

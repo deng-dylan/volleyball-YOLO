@@ -1,0 +1,24 @@
+name: volleyball-yolo26l
+
+services:
+  trainer:
+    image: volleyball-yolo:8.4.147
+    container_name: volleyball-yolo26l-trainer
+    user: "1000:1000"
+    working_dir: /workspace
+    devices:
+      - "nvidia.com/gpu=all"
+    shm_size: "4gb"
+    environment:
+      USER: dylan
+      LOGNAME: dylan
+      PYTHONUNBUFFERED: "1"
+      TORCHINDUCTOR_CACHE_DIR: /workspace/.cache/torchinductor
+      PYTORCH_KERNEL_CACHE_PATH: /workspace/.cache/torch/kernels
+      YOLO_CONFIG_DIR: /workspace/.config
+      MPLCONFIGDIR: /workspace/.config/matplotlib
+    volumes:
+      - .:/workspace
+      - ../volleyball_yolo_v1_20260917:/datasets/volleyball:ro
+    init: true
+    command: ["sleep", "infinity"]

@@ -1,0 +1,29 @@
+services:
+  trainer:
+    image: volleyball-yolo:8.4.147
+    container_name: volleyball-trainer
+
+    user: "1000:1000"
+    working_dir: /workspace
+
+    devices:
+      - "nvidia.com/gpu=all"
+      - "/dev/video0:/dev/video0"
+
+    group_add:
+      - "44"
+
+    shm_size: "4gb"
+
+    environment:
+      HOME: /tmp
+      USER: dylan
+      LOGNAME: dylan
+      YOLO_CONFIG_DIR: /workspace/.config/ultralytics
+      DISPLAY: "${DISPLAY}"
+    volumes:
+      - .:/workspace
+      - /home/dylan/Documents/YOLO/2026vollayball:/datasets/volleyball:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    init: true
+    command: ["sleep", "infinity"]

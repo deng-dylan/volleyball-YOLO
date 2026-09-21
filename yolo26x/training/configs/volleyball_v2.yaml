@@ -1,0 +1,6 @@
+path: /workspace/data/volleyball_yolo_v2_20260918
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: volleyball
