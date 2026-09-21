@@ -1,4 +1,4 @@
-# 正式 YOLOv8 训练结果保留，其他测试运行忽略
+# 正式 YOLOv8 训练结果
 runs/*
 !runs/volleyball_v8n_baseline_v1/
 
@@ -34,7 +34,7 @@ yolo26x/training/imports/
 yolo26x/training/.cache/
 yolo26x/training/.config/
 
-# 只保留正式 YOLO26x quality_v2 训练结果
+# 正式 YOLO26x quality_v2 训练结果
 yolo26x/training/runs/*
 !yolo26x/training/runs/yolo26x_1280_b2_quality_v2/
 
